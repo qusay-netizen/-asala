@@ -1,9 +1,9 @@
 "use strict";
 
 
-/* ==================================================
-   عناصر الصفحة
-================================================== */
+/* =========================
+   العناصر
+========================= */
 
 const intro =
     document.getElementById("intro");
@@ -15,9 +15,16 @@ const heartsContainer =
     document.getElementById("hearts");
 
 
-/* ==================================================
-   شاشة البداية
-================================================== */
+/* =========================
+   منع التمرير قبل فتح الرسالة
+========================= */
+
+document.body.style.overflow = "hidden";
+
+
+/* =========================
+   زر فتح الرسالة
+========================= */
 
 startButton.addEventListener(
     "click",
@@ -33,9 +40,9 @@ startButton.addEventListener(
 );
 
 
-/* ==================================================
-   عداد شاشة البداية
-================================================== */
+/* =========================
+   عناصر العداد
+========================= */
 
 const introDays =
     document.getElementById("introDays");
@@ -55,29 +62,20 @@ const introBirthdayMessage =
     );
 
 
-/*
-    تاريخ الميلاد:
+/* =========================
+   تحديد عيد الميلاد
+========================= */
 
-    19 سبتمبر
-
-    JavaScript يحسب الشهور
-    من 0 إلى 11.
-
-    لذلك سبتمبر = 8
-*/
-
-
-function getNextBirthday() {
+function getBirthdayTarget() {
 
     const now = new Date();
 
-    const currentYear =
-        now.getFullYear();
+    const year = now.getFullYear();
 
 
-    let birthday =
+    const birthdayThisYear =
         new Date(
-            currentYear,
+            year,
             8,
             19,
             0,
@@ -87,40 +85,60 @@ function getNextBirthday() {
 
 
     /*
-        إذا مر يوم 19 سبتمبر،
-        نحسب للعام القادم.
+       إذا كان اليوم 19 سبتمبر،
+       نعرض العداد بصفر.
     */
 
-    if (now >= birthday) {
+    if (
+        now.getMonth() === 8 &&
+        now.getDate() === 19
+    ) {
 
-        birthday =
-            new Date(
-                currentYear + 1,
-                8,
-                19,
-                0,
-                0,
-                0
-            );
+        return birthdayThisYear;
 
     }
 
 
-    return birthday;
+    /*
+       إذا لم يأتِ 19 سبتمبر
+       نستخدم عيد هذه السنة.
+    */
+
+    if (now < birthdayThisYear) {
+
+        return birthdayThisYear;
+
+    }
+
+
+    /*
+       إذا انتهى 19 سبتمبر،
+       نحسب للعام القادم.
+    */
+
+    return new Date(
+        year + 1,
+        8,
+        19,
+        0,
+        0,
+        0
+    );
 
 }
 
 
-function updateIntroCountdown() {
+/* =========================
+   تحديث العداد
+========================= */
 
+function updateCountdown() {
 
     const now =
         new Date();
 
-
     const birthday =
-        getNextBirthday();
-
+        getBirthdayTarget();
 
     const difference =
         birthday.getTime()
@@ -128,28 +146,25 @@ function updateIntroCountdown() {
         now.getTime();
 
 
-    if (difference <= 0) {
+    /*
+       يوم الميلاد
+    */
 
+    if (
+        now.getMonth() === 8 &&
+        now.getDate() === 19
+    ) {
 
-        introDays.textContent =
-            "00";
+        introDays.textContent = "00";
 
+        introHours.textContent = "00";
 
-        introHours.textContent =
-            "00";
+        introMinutes.textContent = "00";
 
-
-        introMinutes.textContent =
-            "00";
-
-
-        introSeconds.textContent =
-            "00";
-
+        introSeconds.textContent = "00";
 
         introBirthdayMessage.style.display =
             "block";
-
 
         return;
 
@@ -208,29 +223,22 @@ function updateIntroCountdown() {
 }
 
 
-/*
-    تشغيل العداد مباشرة
-*/
+/* تشغيل العداد */
 
-updateIntroCountdown();
+updateCountdown();
 
-
-/*
-    تحديث كل ثانية
-*/
 
 setInterval(
-    updateIntroCountdown,
+    updateCountdown,
     1000
 );
 
 
-/* ==================================================
+/* =========================
    القلوب المتحركة
-================================================== */
+========================= */
 
 function createHeart() {
-
 
     const heart =
         document.createElement("span");
@@ -259,10 +267,6 @@ function createHeart() {
         Math.random() * 7 + 6 + "s";
 
 
-    heart.style.opacity =
-        Math.random() * .5 + .2;
-
-
     heartsContainer.appendChild(
         heart
     );
@@ -282,7 +286,6 @@ function createHeart() {
 
 function startHearts() {
 
-
     setInterval(
         function () {
 
@@ -295,9 +298,9 @@ function startHearts() {
 }
 
 
-/* ==================================================
-   Scroll Reveal
-================================================== */
+/* =========================
+   ظهور العناصر أثناء النزول
+========================= */
 
 const revealElements =
     document.querySelectorAll(
@@ -309,23 +312,18 @@ const observer =
     new IntersectionObserver(
         function (entries) {
 
-
             entries.forEach(
                 function (entry) {
-
 
                     if (
                         entry.isIntersecting
                     ) {
 
-
                         entry.target.style.opacity =
                             "1";
 
-
                         entry.target.style.transform =
                             "translateY(0)";
-
 
                     }
 
@@ -342,55 +340,16 @@ const observer =
 revealElements.forEach(
     function (element) {
 
-
         element.style.opacity =
             "0";
-
 
         element.style.transform =
             "translateY(35px)";
 
-
         element.style.transition =
             "opacity 1s ease, transform 1s ease";
 
-
-        observer.observe(
-            element
-        );
+        observer.observe(element);
 
     }
 );
-
-
-/* ==================================================
-   التعامل مع الصور
-================================================== */
-
-const images =
-    document.querySelectorAll("img");
-
-
-images.forEach(
-    function (image) {
-
-
-        image.addEventListener(
-            "error",
-            function () {
-
-                image.style.opacity =
-                    "0.25";
-
-            }
-        );
-
-    }
-);
-
-
-/* ==================================================
-   منع التمرير قبل فتح الرسالة
-================================================== */
-
-document.body.style.overflow = "hidden";

@@ -15,9 +15,7 @@
 * {
 
     margin: 0;
-
     padding: 0;
-
     box-sizing: border-box;
 
 }
@@ -33,7 +31,6 @@ html {
 body {
 
     width: 100%;
-
     min-height: 100vh;
 
     overflow-x: hidden;
@@ -54,9 +51,9 @@ button {
 }
 
 
-/* ==================================================
+/* =========================
    INTRO
-================================================== */
+========================= */
 
 .intro {
 
@@ -67,10 +64,7 @@ button {
     z-index: 9999;
 
     width: 100%;
-
     height: 100svh;
-
-    min-height: 580px;
 
     display: flex;
 
@@ -83,7 +77,6 @@ button {
     overflow: hidden;
 
     background:
-
         radial-gradient(
             circle at center,
             #3a1721 0%,
@@ -114,16 +107,14 @@ button {
     position: absolute;
 
     width: 500px;
-
     height: 500px;
 
     border-radius: 50%;
 
-    background: rgba(216,179,106,.06);
+    background:
+        rgba(216,179,106,.06);
 
     filter: blur(70px);
-
-    pointer-events: none;
 
 }
 
@@ -167,7 +158,6 @@ button {
     font-weight: 300;
 
     background:
-
         linear-gradient(
             120deg,
             #ffffff,
@@ -208,9 +198,9 @@ button {
 }
 
 
-/* ==================================================
-   INTRO COUNTDOWN
-================================================== */
+/* =========================
+   COUNTDOWN
+========================= */
 
 .intro-countdown {
 
@@ -268,9 +258,6 @@ button {
 
     font-variant-numeric: tabular-nums;
 
-    text-shadow:
-        0 0 20px rgba(216,179,106,.25);
-
 }
 
 
@@ -295,8 +282,6 @@ button {
 
     margin-bottom: 15px;
 
-    opacity: .7;
-
 }
 
 
@@ -315,9 +300,9 @@ button {
 }
 
 
-/* ==================================================
+/* =========================
    BUTTON
-================================================== */
+========================= */
 
 .intro__button {
 
@@ -342,15 +327,13 @@ button {
 }
 
 
-.intro__button b {
+.intro__button span {
 
     margin-right: 8px;
 
     color: var(--gold-light);
 
     font-size: 18px;
-
-    font-weight: 400;
 
 }
 
@@ -369,9 +352,9 @@ button {
 }
 
 
-/* ==================================================
+/* =========================
    HERO
-================================================== */
+========================= */
 
 .hero {
 
@@ -401,16 +384,15 @@ button {
     inset: 0;
 
     background:
-
         linear-gradient(
             rgba(10,5,7,.45),
             rgba(10,5,7,.8)
         ),
-
-        url("images/asala-1.jpg")
+        url("asala-1.jpg")
         center / cover no-repeat;
 
-    animation: heroZoom 15s ease infinite alternate;
+    animation:
+        heroZoom 15s ease infinite alternate;
 
 }
 
@@ -422,7 +404,6 @@ button {
     inset: 0;
 
     background:
-
         radial-gradient(
             circle at center,
             transparent 10%,
@@ -441,8 +422,6 @@ button {
     width: 92%;
 
     text-align: center;
-
-    animation: heroAppear 1.8s ease;
 
 }
 
@@ -540,9 +519,9 @@ button {
 }
 
 
-/* ==================================================
+/* =========================
    GENERAL
-================================================== */
+========================= */
 
 .section-container {
 
@@ -597,7 +576,6 @@ button {
 .intro-section {
 
     background:
-
         radial-gradient(
             circle at center,
             #281118,
@@ -623,9 +601,9 @@ button {
 }
 
 
-/* ==================================================
+/* =========================
    LETTER
-================================================== */
+========================= */
 
 .letter {
 
@@ -651,7 +629,6 @@ button {
     border: 1px solid rgba(216,179,106,.2);
 
     background:
-
         linear-gradient(
             145deg,
             rgba(255,255,255,.035),
@@ -732,8 +709,6 @@ button {
 
     font-size: 80px;
 
-    pointer-events: none;
-
 }
 
 
@@ -755,9 +730,9 @@ button {
 }
 
 
-/* ==================================================
+/* =========================
    GALLERY
-================================================== */
+========================= */
 
 .gallery {
 
@@ -862,23 +837,12 @@ button {
 
     font-size: 40px;
 
-    transform: scale(.5);
-
-    transition: .5s ease;
-
 }
 
 
-.gallery-item:hover .gallery-overlay span {
-
-    transform: scale(1);
-
-}
-
-
-/* ==================================================
+/* =========================
    BIRTHDAY
-================================================== */
+========================= */
 
 .birthday {
 
@@ -895,16 +859,12 @@ button {
     text-align: center;
 
     background:
-
         linear-gradient(
             rgba(12,5,8,.65),
             rgba(12,5,8,.9)
         ),
-
-        url("images/asala-5.jpg")
+        url("asala-5.jpg")
         center / cover no-repeat;
-
-    background-attachment: fixed;
 
 }
 
@@ -946,9 +906,9 @@ button {
 }
 
 
-/* ==================================================
+/* =========================
    FOOTER
-================================================== */
+========================= */
 
 .footer {
 
@@ -979,8 +939,6 @@ button {
     font-size: clamp(34px, 7vw, 60px);
 
     font-weight: 300;
-
-    line-height: 1.5;
 
 }
 
@@ -1027,9 +985,9 @@ button {
 }
 
 
-/* ==================================================
-   FLOATING HEARTS
-================================================== */
+/* =========================
+   HEARTS
+========================= */
 
 .hearts {
 
@@ -1059,47 +1017,20 @@ button {
 }
 
 
-/* ==================================================
+/* =========================
    ANIMATIONS
-================================================== */
+========================= */
 
 @keyframes introAppear {
 
     from {
-
         opacity: 0;
-
         transform: translateY(30px);
-
     }
 
     to {
-
         opacity: 1;
-
         transform: translateY(0);
-
-    }
-
-}
-
-
-@keyframes heroAppear {
-
-    from {
-
-        opacity: 0;
-
-        transform: translateY(50px);
-
-    }
-
-    to {
-
-        opacity: 1;
-
-        transform: translateY(0);
-
     }
 
 }
@@ -1108,15 +1039,11 @@ button {
 @keyframes heroZoom {
 
     from {
-
         transform: scale(1.05);
-
     }
 
     to {
-
         transform: scale(1.15);
-
     }
 
 }
@@ -1126,27 +1053,19 @@ button {
 
     0%,
     100% {
-
         transform: scale(1);
-
     }
 
     15% {
-
         transform: scale(1.18);
-
     }
 
     30% {
-
         transform: scale(1);
-
     }
 
     45% {
-
         transform: scale(1.12);
-
     }
 
 }
@@ -1155,33 +1074,22 @@ button {
 @keyframes scrollLine {
 
     0% {
-
         transform: scaleY(0);
-
         transform-origin: top;
-
     }
 
     50% {
-
         transform: scaleY(1);
-
         transform-origin: top;
-
     }
 
     51% {
-
         transform-origin: bottom;
-
     }
 
     100% {
-
         transform: scaleY(0);
-
         transform-origin: bottom;
-
     }
 
 }
@@ -1190,37 +1098,29 @@ button {
 @keyframes floatHeart {
 
     0% {
-
         transform:
             translateY(0)
             rotate(0deg);
-
         opacity: 0;
-
     }
 
     10% {
-
         opacity: 1;
-
     }
 
     100% {
-
         transform:
             translateY(-110vh)
             rotate(360deg);
-
         opacity: 0;
-
     }
 
 }
 
 
-/* ==================================================
+/* =========================
    TABLET
-================================================== */
+========================= */
 
 @media (max-width: 800px) {
 
@@ -1235,26 +1135,11 @@ button {
 }
 
 
-/* ==================================================
+/* =========================
    MOBILE
-================================================== */
+========================= */
 
 @media (max-width: 600px) {
-
-
-    .intro {
-
-        min-height: 560px;
-
-    }
-
-
-    .intro__content {
-
-        width: 94%;
-
-    }
-
 
     .intro__small {
 
@@ -1288,13 +1173,6 @@ button {
     }
 
 
-    .intro-countdown__title {
-
-        font-size: 11px;
-
-    }
-
-
     .intro-countdown__timer {
 
         gap: 2px;
@@ -1313,14 +1191,16 @@ button {
 
     .intro-time span {
 
-        font-size: clamp(22px, 7vw, 30px);
+        font-size: clamp(
+            22px,
+            7vw,
+            30px
+        );
 
     }
 
 
     .intro-time small {
-
-        margin-top: 7px;
 
         font-size: 8px;
 
@@ -1330,8 +1210,6 @@ button {
     .intro-countdown__timer b {
 
         font-size: 16px;
-
-        margin-bottom: 12px;
 
     }
 
@@ -1343,22 +1221,6 @@ button {
         padding: 13px 27px;
 
         font-size: 12px;
-
-    }
-
-
-    /* HERO */
-
-    .hero {
-
-        min-height: 580px;
-
-    }
-
-
-    .hero__content {
-
-        width: 92%;
 
     }
 
@@ -1397,8 +1259,6 @@ button {
     }
 
 
-    /* SECTIONS */
-
     .section-container {
 
         padding: 80px 20px 45px;
@@ -1418,12 +1278,8 @@ button {
 
         font-size: 13px;
 
-        line-height: 2.1;
-
     }
 
-
-    /* LETTER */
 
     .letter {
 
@@ -1455,29 +1311,6 @@ button {
     }
 
 
-    .letter__content p {
-
-        margin-bottom: 21px;
-
-    }
-
-
-    .letter__final {
-
-        font-size: 16px;
-
-    }
-
-
-    .letter-decoration {
-
-        font-size: 50px;
-
-    }
-
-
-    /* GALLERY */
-
     .gallery {
 
         padding-bottom: 70px;
@@ -1505,13 +1338,9 @@ button {
     }
 
 
-    /* BIRTHDAY */
-
     .birthday {
 
         min-height: 500px;
-
-        background-attachment: scroll;
 
     }
 
@@ -1522,8 +1351,6 @@ button {
 
     }
 
-
-    /* FOOTER */
 
     .footer {
 
@@ -1538,27 +1365,18 @@ button {
 
     }
 
-
 }
 
 
-/* ==================================================
+/* =========================
    SMALL PHONES
-================================================== */
+========================= */
 
 @media (max-width: 380px) {
-
 
     .intro h1 {
 
         font-size: 58px;
-
-    }
-
-
-    .intro-countdown__timer {
-
-        gap: 0;
 
     }
 
