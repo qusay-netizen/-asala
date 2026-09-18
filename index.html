@@ -3,102 +3,72 @@
 
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="description"
-        content="هدية خاصة بمناسبة عيد ميلاد أصالة"
-    >
+    <meta name="description" content="رسالة عيد ميلاد خاصة إلى أصالة ❤️">
 
-    <title>إلى أصالة ❤️</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&family=Great+Vibes&display=swap"
-        rel="stylesheet"
-    >
+    <title>إلى أصالة ❤️ | عيد ميلاد سعيد</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- شاشة البداية والعداد -->
+    <!-- =========================
+         Intro Screen
+    ========================== -->
 
     <div class="intro" id="intro">
 
-        <div class="intro__glow"></div>
+        <div class="intro-glow"></div>
 
-        <div class="intro__content">
+        <div class="intro-content">
 
-            <span class="intro__small">
+            <span class="intro-small">
                 A SPECIAL DAY FOR
             </span>
 
-            <h1>
-                أصالة
-            </h1>
+            <h1>أصالة</h1>
 
-            <div class="intro__line"></div>
-
-            <p class="intro__date">
+            <p class="intro-date">
                 19 سبتمبر 2008
             </p>
 
-            <div class="intro-countdown">
+            <p class="intro-text">
+                اليوم الذي بدأت فيه أجمل حكاية ❤️
+            </p>
 
-                <div class="intro-countdown__title">
-                    باقي على يومك الجميل
+            <!-- Countdown -->
+
+            <div class="countdown">
+
+                <div class="count-box">
+                    <span id="introDays">00</span>
+                    <small>يوم</small>
                 </div>
 
-                <div class="intro-countdown__timer">
-
-                    <div class="intro-time">
-                        <span id="introDays">00</span>
-                        <small>يوم</small>
-                    </div>
-
-                    <b>:</b>
-
-                    <div class="intro-time">
-                        <span id="introHours">00</span>
-                        <small>ساعة</small>
-                    </div>
-
-                    <b>:</b>
-
-                    <div class="intro-time">
-                        <span id="introMinutes">00</span>
-                        <small>دقيقة</small>
-                    </div>
-
-                    <b>:</b>
-
-                    <div class="intro-time">
-                        <span id="introSeconds">00</span>
-                        <small>ثانية</small>
-                    </div>
-
+                <div class="count-box">
+                    <span id="introHours">00</span>
+                    <small>ساعة</small>
                 </div>
 
-                <div
-                    class="intro-birthday-message"
-                    id="introBirthdayMessage"
-                >
-                    🎂 اليوم يومك يا أصالة ❤️
+                <div class="count-box">
+                    <span id="introMinutes">00</span>
+                    <small>دقيقة</small>
+                </div>
+
+                <div class="count-box">
+                    <span id="introSeconds">00</span>
+                    <small>ثانية</small>
                 </div>
 
             </div>
 
-            <button
-                class="intro__button"
-                id="startButton"
-                type="button"
-            >
+            <p class="birthday-message" id="introBirthdayMessage">
+                🎂 اليوم يومك يا أصالة ❤️
+            </p>
+
+            <button class="open-button" id="startButton">
                 افتحي رسالتك
                 <span>♡</span>
             </button>
@@ -108,74 +78,76 @@
     </div>
 
 
-    <!-- الموقع -->
+    <!-- =========================
+         Main Website
+    ========================== -->
 
-    <main id="website">
+    <main id="mainContent">
 
         <!-- Hero -->
 
         <section class="hero">
 
-            <div class="hero__background"></div>
+            <div class="hero-overlay"></div>
 
-            <div class="hero__overlay"></div>
+            <div class="hero-content">
 
-            <div class="hero__content">
-
-                <span class="hero__label">
+                <span class="hero-small">
                     HAPPY BIRTHDAY
                 </span>
 
                 <h1>
-                    إلى
+                    إلى حبيبتي
                     <span>أصالة</span>
                 </h1>
 
                 <p>
-                    19 سبتمبر 2008
+                    في يوم ميلادك، أردت أن أصنع لكِ شيئًا
+                    يشبه مكانتكِ في قلبي ❤️
                 </p>
 
-                <div class="hero__heart">
+                <div class="hero-heart">
                     ♥
                 </div>
 
-                <div class="scroll">
+            </div>
 
-                    <span>
-                        اكتشفي المفاجأة
-                    </span>
-
-                    <i></i>
-
-                </div>
-
+            <div class="scroll-indicator">
+                ↓
             </div>
 
         </section>
 
 
-        <!-- المقدمة -->
+        <!-- Introduction -->
 
         <section class="intro-section">
 
-            <div class="section-container">
+            <div class="section-heading reveal">
 
-                <span class="section-label">
-                    A LITTLE MESSAGE
-                </span>
+                <span>♡ حكاية يوم مميز ♡</span>
 
                 <h2>
-                    لأن يوم ميلادك
-                    <br>
-                    ليس يومًا عاديًا
+                    اليوم ليس يومًا عاديًا
                 </h2>
 
-                <div class="gold-line"></div>
+            </div>
 
-                <p class="intro-text">
-                    هناك أيام تمر مثل أي يوم،
-                    وهناك أيام تجعل العالم أجمل
-                    لمجرد أنها جاءت إلى الحياة.
+            <div class="intro-card reveal">
+
+                <p>
+                    هناك تواريخ تمر علينا مثل أي يوم آخر،
+                    وهناك تاريخ واحد يجعلنا نبتسم كلما تذكرناه...
+                </p>
+
+                <p class="gold-text">
+                    19 سبتمبر 2008 ❤️
+                </p>
+
+                <p>
+                    لأنه اليوم الذي جاءت فيه إلى هذا العالم
+                    فتاة أصبحت بالنسبة لي أكثر من مجرد شخص...
+                    أصبحت جزءًا جميلًا من حياتي.
                 </p>
 
             </div>
@@ -183,72 +155,144 @@
         </section>
 
 
-        <!-- الرسالة -->
+        <!-- Romantic Letter -->
 
-        <section class="letter">
+        <section class="letter-section" id="letter">
 
-            <div class="letter-decoration decoration-one">
-                ✦
-            </div>
+            <div class="section-heading reveal">
 
-            <div class="letter-decoration decoration-two">
-                ♡
-            </div>
-
-            <div class="letter__box">
-
-                <span class="letter__label">
-                    TO ASALA
-                </span>
+                <span>♡ رسالة من القلب ♡</span>
 
                 <h2>
-                    إلى أصالة...
+                    إلى حبيبتي أصالة
                 </h2>
 
-                <div class="gold-line"></div>
+            </div>
 
-                <div class="letter__content">
 
-                    <p>
-                        اليوم ليس مجرد يوم عادي،
-                        اليوم هو اليوم الذي وُلدت فيه
-                        إنسانة جعلت للحياة معنى أجمل.
-                    </p>
+            <div class="letter-card reveal">
 
-                    <p>
-                        كل عام وأنتِ بخير يا أصالة،
-                        وكل عام وأنتِ أقرب لأحلامك
-                        وأيامك الجميلة.
-                    </p>
+                <div class="letter-decoration">
+                    ♡
+                </div>
 
-                    <p>
-                        أتمنى أن يكون عامك الجديد
-                        مليئًا بالفرح والنجاحات
-                        واللحظات التي تستحقينها.
-                    </p>
 
-                    <p>
-                        ربما الكلمات لا تكفي لأقول لكِ
-                        كم أنتِ مميزة، لكن أتمنى أن تشعري
-                        من خلال هذه الصفحة الصغيرة
-                        بمكانتك الكبيرة في قلبي.
-                    </p>
+                <p class="letter-opening">
+                    إلى حبيبتي أصالة... ❤️
+                </p>
 
-                    <p class="special-message">
-                        عيد ميلاد سعيد يا أصالة 🎂❤️
-                    </p>
 
-                    <p>
-                        أتمنى أن تبقى ابتسامتك جميلة دائمًا،
-                        وأن تحمل لكِ الأيام القادمة
-                        أشياء أجمل مما تتمنين.
-                    </p>
+                <p>
+                    في مثل هذا اليوم، لم تُولد فتاة عادية...
+                    في مثل هذا اليوم وُلدتِ أنتِ، ومنذ ذلك اليوم
+                    أصبح لهذا التاريخ معنى أجمل.
+                </p>
 
-                    <p class="letter__final">
-                        كل عام وأنتِ بخير،
-                        وكل عام وأنتِ أجمل ذكرى
-                        وأجمل مناسبة. 🌹
-                    </p>
+
+                <p>
+                    أصالة، حبيبتي...
+                    لا أعرف كيف يمكن للكلمات أن تصف مكانتكِ
+                    في قلبي، ولا كيف يمكنني أن أختصر كل ما أشعر
+                    به في رسالة واحدة.
+                </p>
+
+
+                <p>
+                    لكنني أعرف شيئًا واحدًا جيدًا...
+                    أن وجودكِ في حياتي من أجمل الأشياء
+                    التي حدثت لي. ❤️
+                </p>
+
+
+                <p>
+                    في عيد ميلادك، أتمنى أن تبتسم لكِ الحياة
+                    كما تبتسمين لي، وأن تحقق لكِ الأيام
+                    كل أمنية جميلة تخبئينها في قلبكِ.
+                </p>
+
+
+                <p>
+                    أتمنى أن أكون دائمًا بجانبكِ،
+                    في أيامكِ الجميلة، وفي لحظاتكِ الصعبة،
+                    وأن أكون الشخص الذي تجدين عنده
+                    الأمان والراحة والابتسامة.
+                </p>
+
+
+                <p class="highlight-text">
+
+                    كل عام وأنتِ حبيبتي... ❤️<br>
+
+                    كل عام وأنتِ أجمل تفاصيل أيامي...<br>
+
+                    كل عام وأنتِ قريبة من قلبي أكثر.
+
+                </p>
+
+
+                <p>
+                    أنا لا أحتفل اليوم فقط بتاريخ ميلادك...
+                    أنا أحتفل باليوم الذي دخلتِ فيه إلى هذا العالم،
+                    لأن دخولكِ إليه كان سببًا في أن تدخل السعادة
+                    إلى جزء كبير من عالمي.
+                </p>
+
+
+                <p>
+                    عيد ميلاد سعيد يا أصالة،
+                    يا حبيبتي ويا أجمل شخص دخل حياتي. 🎂🌹
+                </p>
+
+
+                <p>
+                    أتمنى أن يكون عامكِ الجديد أجمل
+                    من كل أعوامكِ السابقة،
+                    وأن يحمل لكِ من الفرح بقدر ما يحمل
+                    قلبي لكِ من حب.
+                </p>
+
+
+                <p>
+                    وإن سألتِني يومًا:
+                    ماذا تتمنى لي؟
+                </p>
+
+
+                <p class="special-wish">
+
+                    سأقول لكِ:
+
+                    <br><br>
+
+                    أتمنى أن تبقي بخير... ❤️
+
+                    <br>
+
+                    أن تبقي مبتسمة...
+
+                    <br>
+
+                    أن تحققي كل أحلامكِ...
+
+                    <br>
+
+                    وأن تبقي دائمًا أصالة التي أحبها.
+
+                </p>
+
+
+                <p class="final-love">
+
+                    كل عام وأنتِ حبيبتي،<br>
+
+                    وكل عام وقلبي يختاركِ من جديد. ❤️
+
+                </p>
+
+
+                <div class="letter-signature">
+
+                    من شخص يحبكِ جدًا ❤️
 
                 </div>
 
@@ -257,112 +301,65 @@
         </section>
 
 
-        <!-- معرض الصور -->
+        <!-- Gallery -->
 
-        <section class="gallery">
+        <section class="gallery-section">
 
-            <div class="section-container">
+            <div class="section-heading reveal">
 
-                <span class="section-label">
-                    BEAUTIFUL MEMORIES
-                </span>
+                <span>♡ أجمل اللحظات ♡</span>
 
                 <h2>
-                    أجمل لحظاتك
+                    بعض من جمالكِ
                 </h2>
-
-                <div class="gold-line"></div>
-
-                <p class="section-description">
-                    بعض الصور تختصر الكثير من الكلام...
-                </p>
 
             </div>
 
 
-            <div class="gallery-grid">
+            <div class="gallery">
 
-                <div class="gallery-item">
-
+                <div class="gallery-item reveal">
                     <img
                         src="asala-1.jpg"
                         alt="صورة أصالة"
+                        loading="lazy"
                     >
-
-                    <div class="gallery-overlay">
-                        <span>♡</span>
-                    </div>
-
                 </div>
 
 
-                <div class="gallery-item">
-
+                <div class="gallery-item reveal">
                     <img
                         src="asala-2.jpg"
                         alt="صورة أصالة"
+                        loading="lazy"
                     >
-
-                    <div class="gallery-overlay">
-                        <span>♡</span>
-                    </div>
-
                 </div>
 
 
-                <div class="gallery-item">
-
+                <div class="gallery-item reveal">
                     <img
                         src="asala-3.jpg"
                         alt="صورة أصالة"
+                        loading="lazy"
                     >
-
-                    <div class="gallery-overlay">
-                        <span>♡</span>
-                    </div>
-
                 </div>
 
 
-                <div class="gallery-item">
-
+                <div class="gallery-item reveal">
                     <img
                         src="asala-4.jpg"
                         alt="صورة أصالة"
+                        loading="lazy"
                     >
-
-                    <div class="gallery-overlay">
-                        <span>♡</span>
-                    </div>
-
                 </div>
 
 
-                <div class="gallery-item">
-
+                <div class="gallery-item reveal gallery-large">
                     <img
                         src="asala-5.jpg"
                         alt="صورة أصالة"
+                        loading="lazy"
                     >
-
-                    <div class="gallery-overlay">
-                        <span>♡</span>
-                    </div>
-
-                </div>
-
-
-                <div class="gallery-item">
-
-                    <img
-                        src="asala-6.jpg"
-                        alt="صورة أصالة"
-                    >
-
-                    <div class="gallery-overlay">
-                        <span>♡</span>
-                    </div>
-
                 </div>
 
             </div>
@@ -370,26 +367,62 @@
         </section>
 
 
-        <!-- التاريخ -->
+        <!-- Special Date -->
 
-        <section class="birthday">
+        <section class="date-section">
 
-            <div class="birthday__content">
+            <div class="date-overlay"></div>
 
-                <span class="section-label">
-                    THE SPECIAL DATE
+            <div class="date-content reveal">
+
+                <span>
+                    SAVE THIS DATE
                 </span>
 
                 <h2>
                     19
-                    <span>September</span>
-                    2008
                 </h2>
 
-                <div class="gold-line"></div>
+                <div class="date-line"></div>
+
+                <h3>
+                    سبتمبر
+                </h3>
 
                 <p>
-                    اليوم الذي بدأت فيه حكاية جميلة...
+                    اليوم الذي وُلدت فيه حبيبتي ❤️
+                </p>
+
+                <div class="big-heart">
+                    ♥
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Final Message -->
+
+        <section class="final-section">
+
+            <div class="final-content reveal">
+
+                <span>
+                    ♡
+                </span>
+
+                <h2>
+                    عيد ميلاد سعيد
+                </h2>
+
+                <h3>
+                    يا أصالة ❤️
+                </h3>
+
+                <p>
+                    أتمنى أن تبقى ابتسامتكِ أجمل شيء
+                    في كل أيامكِ القادمة.
                 </p>
 
             </div>
@@ -397,41 +430,26 @@
         </section>
 
 
-        <!-- النهاية -->
+        <!-- Footer -->
 
-        <footer class="footer">
-
-            <div class="footer__heart">
-                ♥
-            </div>
-
-            <h2>
-                كل عام وأنتِ بخير
-                <span>أصالة</span>
-            </h2>
+        <footer>
 
             <p>
-                أتمنى أن تكون أيامك القادمة
-                أجمل من كل أمنياتك.
+                صُنعت بكل حب إلى أصالة ❤️
             </p>
 
-            <div class="footer__line"></div>
-
-            <small>
-                Made with love ♡
-            </small>
+            <span>
+                19 • 09 • 2008
+            </span>
 
         </footer>
 
     </main>
 
 
-    <!-- القلوب -->
+    <!-- Floating Hearts -->
 
-    <div
-        class="hearts"
-        id="hearts"
-    ></div>
+    <div class="hearts-container" id="heartsContainer"></div>
 
 
     <script src="script.js"></script>

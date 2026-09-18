@@ -1,48 +1,15 @@
-"use strict";
-
-
 /* =========================
-   العناصر
+   Elements
 ========================= */
 
-const intro =
-    document.getElementById("intro");
+const intro = document.getElementById("intro");
 
 const startButton =
     document.getElementById("startButton");
 
-const heartsContainer =
-    document.getElementById("hearts");
+const mainContent =
+    document.getElementById("mainContent");
 
-
-/* =========================
-   منع التمرير قبل فتح الرسالة
-========================= */
-
-document.body.style.overflow = "hidden";
-
-
-/* =========================
-   زر فتح الرسالة
-========================= */
-
-startButton.addEventListener(
-    "click",
-    function () {
-
-        intro.classList.add("hidden");
-
-        document.body.style.overflowY = "auto";
-
-        startHearts();
-
-    }
-);
-
-
-/* =========================
-   عناصر العداد
-========================= */
 
 const introDays =
     document.getElementById("introDays");
@@ -62,15 +29,56 @@ const introBirthdayMessage =
     );
 
 
+const heartsContainer =
+    document.getElementById(
+        "heartsContainer"
+    );
+
+
 /* =========================
-   تحديد عيد الميلاد
+   Lock Page
+========================= */
+
+document.body.classList.add("locked");
+
+
+/* =========================
+   Open Website
+========================= */
+
+startButton.addEventListener(
+    "click",
+    function () {
+
+        intro.classList.add("hidden");
+
+        mainContent.classList.add("visible");
+
+        document.body.classList.remove(
+            "locked"
+        );
+
+        startHeartAnimation();
+
+        setTimeout(
+            revealVisibleElements,
+            500
+        );
+
+    }
+);
+
+
+/* =========================
+   Birthday Countdown
 ========================= */
 
 function getBirthdayTarget() {
 
     const now = new Date();
 
-    const year = now.getFullYear();
+    const year =
+        now.getFullYear();
 
 
     const birthdayThisYear =
@@ -85,8 +93,7 @@ function getBirthdayTarget() {
 
 
     /*
-       إذا كان اليوم 19 سبتمبر،
-       نعرض العداد بصفر.
+       إذا كان اليوم هو 19 سبتمبر
     */
 
     if (
@@ -100,11 +107,13 @@ function getBirthdayTarget() {
 
 
     /*
-       إذا لم يأتِ 19 سبتمبر
-       نستخدم عيد هذه السنة.
+       إذا لم يأتِ عيد الميلاد
+       هذا العام
     */
 
-    if (now < birthdayThisYear) {
+    if (
+        now < birthdayThisYear
+    ) {
 
         return birthdayThisYear;
 
@@ -112,8 +121,7 @@ function getBirthdayTarget() {
 
 
     /*
-       إذا انتهى 19 سبتمبر،
-       نحسب للعام القادم.
+       الانتقال للعام القادم
     */
 
     return new Date(
@@ -129,7 +137,7 @@ function getBirthdayTarget() {
 
 
 /* =========================
-   تحديث العداد
+   Update Countdown
 ========================= */
 
 function updateCountdown() {
@@ -140,14 +148,9 @@ function updateCountdown() {
     const birthday =
         getBirthdayTarget();
 
-    const difference =
-        birthday.getTime()
-        -
-        now.getTime();
-
 
     /*
-       يوم الميلاد
+       إذا كان اليوم عيد الميلاد
     */
 
     if (
@@ -163,8 +166,22 @@ function updateCountdown() {
 
         introSeconds.textContent = "00";
 
+
         introBirthdayMessage.style.display =
             "block";
+
+
+        return;
+
+    }
+
+
+    const difference =
+        birthday.getTime() -
+        now.getTime();
+
+
+    if (difference <= 0) {
 
         return;
 
@@ -206,24 +223,34 @@ function updateCountdown() {
 
 
     introDays.textContent =
-        String(days).padStart(2, "0");
+        String(days).padStart(
+            2,
+            "0"
+        );
 
 
     introHours.textContent =
-        String(hours).padStart(2, "0");
+        String(hours).padStart(
+            2,
+            "0"
+        );
 
 
     introMinutes.textContent =
-        String(minutes).padStart(2, "0");
+        String(minutes).padStart(
+            2,
+            "0"
+        );
 
 
     introSeconds.textContent =
-        String(seconds).padStart(2, "0");
+        String(seconds).padStart(
+            2,
+            "0"
+        );
 
 }
 
-
-/* تشغيل العداد */
 
 updateCountdown();
 
@@ -235,36 +262,91 @@ setInterval(
 
 
 /* =========================
-   القلوب المتحركة
+   Reveal Animation
+========================= */
+
+function revealVisibleElements() {
+
+    const elements =
+        document.querySelectorAll(
+            ".reveal"
+        );
+
+
+    elements.forEach(
+        function (element) {
+
+            const rect =
+                element.getBoundingClientRect();
+
+
+            if (
+                rect.top <
+                window.innerHeight * 0.9
+            ) {
+
+                element.classList.add(
+                    "show"
+                );
+
+            }
+
+        }
+    );
+
+}
+
+
+window.addEventListener(
+    "scroll",
+    revealVisibleElements
+);
+
+
+/* =========================
+   Floating Hearts
 ========================= */
 
 function createHeart() {
 
     const heart =
-        document.createElement("span");
+        document.createElement(
+            "span"
+        );
 
 
-    heart.classList.add(
-        "floating-heart"
-    );
+    heart.className =
+        "floating-heart";
 
 
     heart.textContent =
         Math.random() > 0.5
-            ? "♡"
-            : "♥";
+            ? "♥"
+            : "♡";
+
+
+    const size =
+        Math.random() * 18 + 10;
+
+
+    const left =
+        Math.random() * 100;
+
+
+    const duration =
+        Math.random() * 5 + 6;
 
 
     heart.style.left =
-        Math.random() * 100 + "%";
+        left + "%";
 
 
     heart.style.fontSize =
-        Math.random() * 18 + 10 + "px";
+        size + "px";
 
 
     heart.style.animationDuration =
-        Math.random() * 7 + 6 + "s";
+        duration + "s";
 
 
     heartsContainer.appendChild(
@@ -278,13 +360,16 @@ function createHeart() {
             heart.remove();
 
         },
-        14000
+        duration * 1000
     );
 
 }
 
 
-function startHearts() {
+function startHeartAnimation() {
+
+    createHeart();
+
 
     setInterval(
         function () {
@@ -292,64 +377,17 @@ function startHearts() {
             createHeart();
 
         },
-        650
+        700
     );
 
 }
 
 
 /* =========================
-   ظهور العناصر أثناء النزول
+   Initial Reveal
 ========================= */
 
-const revealElements =
-    document.querySelectorAll(
-        ".letter__box, .gallery-item, .birthday__content"
-    );
-
-
-const observer =
-    new IntersectionObserver(
-        function (entries) {
-
-            entries.forEach(
-                function (entry) {
-
-                    if (
-                        entry.isIntersecting
-                    ) {
-
-                        entry.target.style.opacity =
-                            "1";
-
-                        entry.target.style.transform =
-                            "translateY(0)";
-
-                    }
-
-                }
-            );
-
-        },
-        {
-            threshold: 0.12
-        }
-    );
-
-
-revealElements.forEach(
-    function (element) {
-
-        element.style.opacity =
-            "0";
-
-        element.style.transform =
-            "translateY(35px)";
-
-        element.style.transition =
-            "opacity 1s ease, transform 1s ease";
-
-        observer.observe(element);
-
-    }
-);
+setTimeout(
+    revealVisibleElements,
+    1000
+);ر
